@@ -1,0 +1,19 @@
+.main {
+  display: flex;
+  flex: 1;
+  height: 100%;
+
+  img {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .content {
+    margin: 0 auto;
+    text-align: center;
+    z-index: 100;
+  }
+}
