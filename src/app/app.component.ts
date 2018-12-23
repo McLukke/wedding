@@ -12,8 +12,8 @@ export class AppComponent {
 
   constructor(private _appService: AppService) {}
 
-  handleSubmit(inputs) {
-    console.log("inputs: ", inputs);
+  handleSubmit() {
+    console.log("this.formInputs: ", this.formInputs);
 
     // this._appService.submitToServer(inputs).subscribe(data => {
     //   console.log("data: ", data);
