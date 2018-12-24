@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { Observable, throwError } from "rxjs";
-import { map, catchError } from "rxjs/operators";
+import { HttpHeaders, HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 import AppSchema from "./app.schema";
 
 @Injectable()
@@ -11,19 +10,12 @@ export class AppService {
   constructor(private http: HttpClient) {}
 
   submitToServer(data): Observable<AppSchema> {
-    console.log("data to submit: ", data);
+    const headers = new HttpHeaders();
+    headers.append(
+      "Content-Type",
+      "application/x-www-form-urlencoded;charset=utf-8"
+    );
 
-    return this.http
-      .post<AppSchema>(`${this.ENDPOINT}`, JSON.stringify(data))
-      .pipe(
-        map(res => res),
-        catchError(this.handleErrors)
-      );
-  }
-
-  private handleErrors(error: HttpErrorResponse) {
-    console.log("error: ", error);
-
-    return throwError("Error!");
+    return this.http.post<AppSchema>(`${this.ENDPOINT}`, data, { headers });
   }
 }
