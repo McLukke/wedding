@@ -1,3 +1,8 @@
 export default interface AppSchema {
-  id: number;
+  name: string;
+  hasGuest: boolean;
+  guestName: string;
+  hasKids: boolean;
+  childName: string;
+  vegetarian: boolean;
 }
