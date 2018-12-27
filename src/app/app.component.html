@@ -1,8 +1,8 @@
 <!-- The content below is only a placeholder and can be replaced. -->
 <div class="main">
-  <img src="assets/flowers.jpg" />
-
   <div class="content">
+    <img src="assets/double_happiness.svg" />
+
     <h1>Kenny and Jane Wedding 2019</h1>
     <p>Come celebrate with us on Sept 21, 2019</p>
     <p>Only X more days to go!</p>
@@ -10,7 +10,7 @@
     <br />
 
     <form (ngSubmit)="handleSubmit()" #invitationForm="ngForm">
-      <p>text 2</p>
+      <p>standard meal includes seafood and pork.</p>
       <p>text 3</p>
       <p>text 4</p>
       <div class="form-group">
@@ -78,6 +78,8 @@
       <button type="submit">I will Celebrate with you!</button>
     </form>
   </div>
+
+  <div class="flowers"><img src="assets/flowers.jpg" /></div>
 </div>
 
 <router-outlet></router-outlet>
