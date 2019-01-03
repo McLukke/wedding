@@ -2,6 +2,23 @@
   display: flex;
   flex: 1;
   height: 100%;
+  padding: 4em;
+
+  .content-wrapper {
+    border: 3px solid #bc333a;
+    flex: 1;
+    display: flex;
+
+    .logo {
+      margin: -3.5em auto 0;
+    }
+
+    .content {
+      margin: 0 auto;
+      text-align: center;
+      z-index: 100;
+    }
+  }
 
   .flowers {
     width: 100%;
@@ -18,11 +35,5 @@
       left: 0;
       z-index: 1;
     }
-  }
-
-  .content {
-    margin: 0 auto;
-    text-align: center;
-    z-index: 100;
   }
 }

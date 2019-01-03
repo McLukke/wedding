@@ -1,82 +1,84 @@
 <!-- The content below is only a placeholder and can be replaced. -->
 <div class="main">
-  <div class="content">
-    <img src="assets/double_happiness.svg" />
+  <div class="content-wrapper">
+    <div class="content">
+      <img class="logo" src="assets/double_happiness.svg" />
 
-    <h1>Kenny and Jane Wedding 2019</h1>
-    <p>Come celebrate with us on Sept 21, 2019</p>
-    <p>Only X more days to go!</p>
+      <h1>Kenny and Jane Wedding 2019</h1>
+      <p>Come celebrate with us on Sept 21, 2019</p>
+      <p>Only X more days to go!</p>
 
-    <br />
+      <br />
 
-    <form (ngSubmit)="handleSubmit()" #invitationForm="ngForm">
-      <p>standard meal includes seafood and pork.</p>
-      <p>text 3</p>
-      <p>text 4</p>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input
-          name="name"
-          type="text"
-          [(ngModel)]="formInputs.name"
-          placeholder="Enter your full name here"
-        />
-      </div>
+      <form (ngSubmit)="handleSubmit()" #invitationForm="ngForm">
+        <p>standard meal includes seafood and pork.</p>
+        <p>text 3</p>
+        <p>text 4</p>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            name="name"
+            type="text"
+            [(ngModel)]="formInputs.name"
+            placeholder="Enter your full name here"
+          />
+        </div>
 
-      <div class="form-group">
-        <label for="hasGuest">Are you bringing a +1</label>
-        <input
-          [(ngModel)]="formInputs.hasGuest"
-          name="hasGuest"
-          type="checkbox"
-          checked
-        />
-      </div>
+        <div class="form-group">
+          <label for="hasGuest">Are you bringing a +1</label>
+          <input
+            [(ngModel)]="formInputs.hasGuest"
+            name="hasGuest"
+            type="checkbox"
+            checked
+          />
+        </div>
 
-      <div class="form-group">
-        <label for="guestName">Name of +1</label>
-        <input
-          [(ngModel)]="formInputs.guestName"
-          name="guestName"
-          type="text"
-          placeholder="Enter +1 name here"
-        />
-      </div>
+        <div class="form-group">
+          <label for="guestName">Name of +1</label>
+          <input
+            [(ngModel)]="formInputs.guestName"
+            name="guestName"
+            type="text"
+            placeholder="Enter +1 name here"
+          />
+        </div>
 
-      <div class="form-group">
-        <label for="hasKids">Are you bringing a child?</label>
-        <input
-          [(ngModel)]="formInputs.hasKids"
-          name="hasKids"
-          type="checkbox"
-          checked
-        />
-      </div>
+        <div class="form-group">
+          <label for="hasKids">Are you bringing a child?</label>
+          <input
+            [(ngModel)]="formInputs.hasKids"
+            name="hasKids"
+            type="checkbox"
+            checked
+          />
+        </div>
 
-      <div class="form-group">
-        <label for="childName">Name of child</label>
-        <input
-          [(ngModel)]="formInputs.childName"
-          name="childName"
-          type="text"
-          placeholder="Enter child name here"
-        />
-      </div>
+        <div class="form-group">
+          <label for="childName">Name of child</label>
+          <input
+            [(ngModel)]="formInputs.childName"
+            name="childName"
+            type="text"
+            placeholder="Enter child name here"
+          />
+        </div>
 
-      <div class="form-group">
-        <label for="vegetarian"
-          >I/we would like to opt in for the Vegetarian menu for the
-          evening</label
-        >
-        <input
-          [(ngModel)]="formInputs.vegetarian"
-          name="vegetarian"
-          type="checkbox"
-          checked
-        />
-      </div>
-      <button type="submit">I will Celebrate with you!</button>
-    </form>
+        <div class="form-group">
+          <label for="vegetarian"
+            >I/we would like to opt in for the Vegetarian menu for the
+            evening</label
+          >
+          <input
+            [(ngModel)]="formInputs.vegetarian"
+            name="vegetarian"
+            type="checkbox"
+            checked
+          />
+        </div>
+        <button type="submit">I will Celebrate with you!</button>
+      </form>
+    </div>
   </div>
 
   <div class="flowers"><img src="assets/flowers.jpg" /></div>
