@@ -11,7 +11,7 @@
   }
 
   .content-wrapper {
-    border: 3px solid #bc333a;
+    border: 0.5rem solid #bc333a;
     flex: 1;
     display: flex;
 
@@ -26,6 +26,7 @@
 
       .logo {
         margin: -3.5em auto 0;
+        width: 10rem;
       }
 
       > div {
@@ -49,35 +50,25 @@
         position: relative;
         justify-content: center;
         align-items: center;
-        margin-bottom: 3.5rem;
-
-        span {
-          font-family: Halo, Sans-serif;
-          font-size: 5rem;
-          color: #bc333a;
-        }
-
-        .kenny {
-          margin-right: 3rem;
-        }
-
-        .jane {
-          position: absolute;
-          right: 35%;
-          bottom: -3rem;
-        }
+        font-family: Halo, Sans-serif;
+        font-size: 5rem;
+        color: #bc333a;
 
         .ampersand {
-          position: absolute;
           font-size: 3rem;
-          left: 45%;
-          bottom: -2rem;
+          margin: 0 2rem;
         }
       }
 
       .venue {
         margin-top: 1rem;
         text-transform: uppercase;
+      }
+
+      .rsvp {
+        font-size: 1.5rem;
+        align-self: flex-start;
+        margin: 1rem 0 0 1rem;
       }
     }
   }
@@ -89,6 +80,7 @@
     bottom: 0;
     left: 0;
     overflow: hidden;
+    transform: translate(0, 4%);
 
     img {
       width: 100%;
