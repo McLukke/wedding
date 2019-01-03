@@ -4,16 +4,31 @@
     <div class="content">
       <img class="logo" src="assets/double_happiness.svg" />
 
-      <h1>Kenny and Jane Wedding 2019</h1>
-      <p>Come celebrate with us on Sept 21, 2019</p>
-      <p>Only X more days to go!</p>
+      <div class="date-time">
+        <span>Saturday</span> <span class="custom-gabriola">21.09.19</span>
+        <span>6:00pm</span>
+      </div>
 
-      <br />
+      <div class="celebration">
+        <span>Join us for a celebration of</span>
+        <span>love, laughter, friendship and family as</span>
+      </div>
 
-      <form (ngSubmit)="handleSubmit()" #invitationForm="ngForm">
-        <p>standard meal includes seafood and pork.</p>
-        <p>text 3</p>
-        <p>text 4</p>
+      <div class="our-names">
+        <span class="kenny">Kenny</span> <span class="ampersand">&</span>
+        <span class="jane">Jane</span>
+      </div>
+
+      <div>begin their new life together</div>
+
+      <span class="venue">Crown Prince Fine Dining & Banquet</span>
+      <span>3600 Victoria Park Avenue, North York, ON M2H 3B2</span>
+
+      <form
+        style="border: 1px solid green; margin-top: 2rem"
+        (ngSubmit)="handleSubmit()"
+        #invitationForm="ngForm"
+      >
         <div class="form-group">
           <label for="name">Name</label>
           <input

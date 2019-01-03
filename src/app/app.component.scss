@@ -4,19 +4,81 @@
   height: 100%;
   padding: 4em;
 
+  .custom-gabriola {
+    font-family: Gabriola, Sans-serif;
+    font-size: 3rem;
+    color: #bc333a;
+  }
+
   .content-wrapper {
     border: 3px solid #bc333a;
     flex: 1;
     display: flex;
 
-    .logo {
-      margin: -3.5em auto 0;
-    }
-
     .content {
       margin: 0 auto;
       text-align: center;
       z-index: 100;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid red;
+
+      .logo {
+        margin: -3.5em auto 0;
+      }
+
+      > div {
+        justify-content: center;
+      }
+
+      .date-time {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 50%;
+        align-self: center;
+      }
+
+      .celebration {
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .our-names {
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 3.5rem;
+
+        span {
+          font-family: Halo, Sans-serif;
+          font-size: 5rem;
+          color: #bc333a;
+        }
+
+        .kenny {
+          margin-right: 3rem;
+        }
+
+        .jane {
+          position: absolute;
+          right: 35%;
+          bottom: -3rem;
+        }
+
+        .ampersand {
+          position: absolute;
+          font-size: 3rem;
+          left: 45%;
+          bottom: -2rem;
+        }
+      }
+
+      .venue {
+        margin-top: 1rem;
+        text-transform: uppercase;
+      }
     }
   }
 
