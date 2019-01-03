@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "/fonts/fonts";
+
 html,
 body {
   width: 100%;
@@ -7,6 +9,8 @@ body {
   display: flex;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Helvetica", Sans-serif;
+  color: black;
 }
 
 *,
