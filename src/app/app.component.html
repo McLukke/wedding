@@ -42,6 +42,7 @@
 
                 <div *ngIf="selectedTab === 1">
                   <form
+                    *ngIf="!rsvpAlready"
                     nz-form
                     (ngSubmit)="handleSubmit()"
                     #invitationForm="ngForm"
@@ -262,7 +263,17 @@
                     <button type="submit" nz-button nzType="primary">
                       RSVP now
                     </button>
+
+                    <div *ngIf="serverError" class="server-error">
+                      {{ serverError }}
+                    </div>
                   </form>
+
+                  <div class="rsvp-thank-you" *ngIf="rsvpAlready">
+                    You have responded to our invitation already, thank you for
+                    taking the time to fill this form out and to come celebrate
+                    with us. We look forward to seeing you on the day of.
+                  </div>
                 </div>
 
                 <div class="tab-style" *ngIf="selectedTab === 2">
