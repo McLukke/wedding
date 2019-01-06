@@ -23,63 +23,62 @@
       <span>3600 Victoria Park Avenue, North York, ON M2H 3B2</span>
 
       <div nz-row nzType="flex" nzJustify="center">
-        <div nz-col nzXs="24" nzLg="10">
-          <form nz-form (ngSubmit)="handleSubmit()" #invitationForm="ngForm">
+        <div
+          nz-col
+          nzXs="24"
+          nzMd="20"
+          nzXl="16"
+          style="border: 1px solid red;"
+        >
+          <form
+            nz-form
+            (ngSubmit)="handleSubmit($event, invitationForm.value)"
+            #invitationForm="ngForm"
+          >
             <nz-form-item>
-              <nz-form-label [nzSm]="6" [nzXs]="24">Full Name</nz-form-label>
+              <nz-form-label [nzXl]="4" [nzMd]="8" [nzSm]="8" [nzXs]="24"
+                >Full Name</nz-form-label
+              >
               <nz-form-control
                 nzValidateStatus="error"
                 nzHasFeedback
-                [nzMd]="18"
+                [nzXl]="8"
+                [nzMd]="16"
+                [nzSm]="16"
                 [nzXs]="24"
               >
                 <input nz-input [ngModel]="formInputs.name" name="name" />
                 <nz-form-explain></nz-form-explain>
               </nz-form-control>
+
+              <nz-form-control [nzXl]="12" [nzXs]="24">
+                <label
+                  nz-checkbox
+                  [ngModel]="formInputs.hasGuest"
+                  name="hasGuest"
+                >
+                  <span>Are you bringing a guest?</span>
+                </label>
+                <nz-form-explain></nz-form-explain>
+              </nz-form-control>
             </nz-form-item>
 
-            <nz-form-item>
-              <nz-form-label [nzSm]="6" [nzXs]="24">Guest Name</nz-form-label>
+            <nz-form-item style="margin: 0;">
+              <nz-form-label [nzSm]="8" [nzXs]="24">Partner Name</nz-form-label>
               <nz-form-control
                 nzValidateStatus=""
                 nzHasFeedback
-                [nzMd]="18"
+                [nzMd]="16"
                 [nzXs]="24"
               >
-                <input nz-input [ngModel]="formInputs.name" name="name" />
+                <input
+                  nz-input
+                  [ngModel]="formInputs.guestName"
+                  name="guestName"
+                />
                 <nz-form-explain></nz-form-explain>
               </nz-form-control>
             </nz-form-item>
-
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input
-                name="name"
-                type="text"
-                [(ngModel)]="formInputs.name"
-                placeholder="Enter your full name here"
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="hasGuest">Are you bringing a +1</label>
-              <input
-                [(ngModel)]="formInputs.hasGuest"
-                name="hasGuest"
-                type="checkbox"
-                checked
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="guestName">Name of +1</label>
-              <input
-                [(ngModel)]="formInputs.guestName"
-                name="guestName"
-                type="text"
-                placeholder="Enter +1 name here"
-              />
-            </div>
 
             <div class="form-group">
               <label for="hasKids">Are you bringing a child?</label>

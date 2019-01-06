@@ -19,16 +19,18 @@ export class AppComponent {
 
   constructor(private _appService: AppService) {}
 
-  handleSubmit() {
+  handleSubmit(event, value) {
+    console.log("event: ", event);
+    console.log("value: ", value);
     console.log("this.formInputs: ", this.formInputs);
 
-    this._appService.submitToServer(this.formInputs).subscribe(
-      res => {
-        console.log("res: ", res);
-      },
-      err => {
-        console.log("err: ", err);
-      }
-    );
+    // this._appService.submitToServer(this.formInputs).subscribe(
+    //   res => {
+    //     console.log("res: ", res);
+    //   },
+    //   err => {
+    //     console.log("err: ", err);
+    //   }
+    // );
   }
 }
