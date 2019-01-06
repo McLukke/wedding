@@ -58,8 +58,13 @@
       }
 
       .venue {
-        margin-top: 1rem;
         text-transform: uppercase;
+        margin: 2rem 0 0 0;
+
+        &.venue-location {
+          margin: 0 0 2rem 0;
+          text-transform: unset;
+        }
       }
 
       .rsvp {
@@ -71,6 +76,11 @@
       form {
         margin-top: 3rem;
         padding-bottom: 5rem;
+
+        .vegetarian-disclaimer {
+          margin-top: 2.25rem;
+          line-height: 1.5rem;
+        }
       }
     }
   }
