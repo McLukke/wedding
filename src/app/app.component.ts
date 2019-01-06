@@ -7,7 +7,6 @@ import { AppService } from "./app.service";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-  title = "wedding";
   formInputs = {
     yourName: "",
     hasGuest: false,

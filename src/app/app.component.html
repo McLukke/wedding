@@ -48,7 +48,7 @@
             </nz-form-item>
 
             <nz-form-item>
-              <nz-form-control [nzLg]="8" [nzMd]="10" [nzSm]="24" [nzXs]="24">
+              <nz-form-control [nzXl]="10" [nzMd]="10" [nzSm]="24" [nzXs]="24">
                 <label
                   nz-checkbox
                   [ngModel]="formInputs.hasGuest"
@@ -59,13 +59,13 @@
                 <nz-form-explain></nz-form-explain>
               </nz-form-control>
 
-              <nz-form-label [nzLg]="4" [nzMd]="5" [nzSm]="24" [nzXs]="24"
+              <nz-form-label [nzXl]="4" [nzMd]="5" [nzSm]="24" [nzXs]="24"
                 >Partner Name</nz-form-label
               >
               <nz-form-control
                 nzValidateStatus=""
                 nzHasFeedback
-                [nzLg]="12"
+                [nzXl]="10"
                 [nzMd]="9"
                 [nzSm]="24"
                 [nzXs]="24"
@@ -74,13 +74,14 @@
                   nz-input
                   [ngModel]="formInputs.guestName"
                   name="guestName"
+                  [disabled]="!formInputs.hasGuest"
                 />
                 <nz-form-explain></nz-form-explain>
               </nz-form-control>
             </nz-form-item>
 
             <nz-form-item>
-              <nz-form-control [nzLg]="8" [nzMd]="10" [nzSm]="24" [nzXs]="24">
+              <nz-form-control [nzXl]="10" [nzMd]="10" [nzSm]="24" [nzXs]="24">
                 <label
                   nz-checkbox
                   [ngModel]="formInputs.hasKids"
@@ -91,13 +92,13 @@
                 <nz-form-explain></nz-form-explain>
               </nz-form-control>
 
-              <nz-form-label [nzLg]="4" [nzMd]="5" [nzSm]="24" [nzXs]="24"
+              <nz-form-label [nzXl]="4" [nzMd]="5" [nzSm]="24" [nzXs]="24"
                 >Name of child</nz-form-label
               >
               <nz-form-control
                 nzValidateStatus=""
                 nzHasFeedback
-                [nzLg]="12"
+                [nzXl]="10"
                 [nzMd]="9"
                 [nzSm]="24"
                 [nzXs]="24"
@@ -106,6 +107,7 @@
                   nz-input
                   [ngModel]="formInputs.childName"
                   name="childName"
+                  [disabled]="!formInputs.hasKids"
                 />
                 <nz-form-explain></nz-form-explain>
               </nz-form-control>
@@ -130,6 +132,10 @@
             <button type="submit" nz-button nzType="primary">
               I will Celebrate with you!
             </button>
+
+            <pre>
+              {{ formInputs | json }}
+            </pre>
           </form>
         </div>
       </div>
