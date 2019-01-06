@@ -55,6 +55,11 @@
                         >Full Name</nz-form-label
                       >
                       <nz-form-control
+                        nzValidateStatus="{{
+                          !formInputName.valid && formInputName.touched
+                            ? 'error'
+                            : ''
+                        }}"
                         nzHasFeedback
                         [nzLg]="12"
                         [nzMd]="16"
@@ -64,15 +69,24 @@
                         <input
                           nz-input
                           required
-                          pattern="[a-zA-Z][a-zA-Z]+"
+                          pattern="[a-zA-Z]+[\s][a-zA-Z]+"
                           [(ngModel)]="formInputs.name"
                           name="name"
+                          #formInputName="ngModel"
                         />
-                      </nz-form-control>
 
-                      <nz-form-explain *ngIf="!formInputs.name">
-                        test
-                      </nz-form-explain>
+                        <nz-form-explain
+                          *ngIf="!formInputName.valid && formInputName.touched"
+                        >
+                          <ng-container *ngIf="formInputName.errors?.required">
+                            Please enter your name
+                          </ng-container>
+
+                          <ng-container *ngIf="formInputName.errors?.pattern">
+                            Alphabetical first and Last name only please
+                          </ng-container>
+                        </nz-form-explain>
+                      </nz-form-control>
                     </nz-form-item>
 
                     <nz-form-item>
@@ -101,7 +115,16 @@
                         >Guest Name</nz-form-label
                       >
                       <nz-form-control
-                        nzValidateStatus=""
+                        nzValidateStatus="{{
+                          !formInputGuestName.valid &&
+                          formInputGuestName.touched
+                            ? 'error'
+                            : !formInputGuestName.valid &&
+                              !formInputGuestName.touched &&
+                              formInputs.hasGuest
+                            ? 'warning'
+                            : ''
+                        }}"
                         nzHasFeedback
                         [nzXl]="10"
                         [nzMd]="9"
@@ -110,11 +133,32 @@
                       >
                         <input
                           nz-input
+                          required
+                          pattern="[a-zA-Z]+[\s][a-zA-Z]+"
                           [(ngModel)]="formInputs.guestName"
                           name="guestName"
                           [disabled]="!formInputs.hasGuest"
+                          #formInputGuestName="ngModel"
                         />
-                        <nz-form-explain></nz-form-explain>
+
+                        <nz-form-explain
+                          *ngIf="
+                            !formInputGuestName.valid &&
+                            (formInputGuestName.touched || formInputs.hasGuest)
+                          "
+                        >
+                          <ng-container
+                            *ngIf="formInputGuestName.errors?.required"
+                          >
+                            Please enter a name for your guest
+                          </ng-container>
+
+                          <ng-container
+                            *ngIf="formInputGuestName.errors?.pattern"
+                          >
+                            Alphabetical first and Last name only please
+                          </ng-container>
+                        </nz-form-explain>
                       </nz-form-control>
                     </nz-form-item>
 
@@ -133,7 +177,6 @@
                         >
                           <span>I am bringing a child</span>
                         </label>
-                        <nz-form-explain></nz-form-explain>
                       </nz-form-control>
 
                       <nz-form-label
@@ -144,7 +187,16 @@
                         >Name of child</nz-form-label
                       >
                       <nz-form-control
-                        nzValidateStatus=""
+                        nzValidateStatus="{{
+                          !formInputChildName.valid &&
+                          formInputChildName.touched
+                            ? 'error'
+                            : !formInputChildName.valid &&
+                              !formInputChildName.touched &&
+                              formInputs.hasKids
+                            ? 'warning'
+                            : ''
+                        }}"
                         nzHasFeedback
                         [nzXl]="10"
                         [nzMd]="9"
@@ -153,11 +205,32 @@
                       >
                         <input
                           nz-input
+                          required
+                          pattern="[a-zA-Z]+[\s][a-zA-Z]+"
                           [(ngModel)]="formInputs.childName"
                           name="childName"
                           [disabled]="!formInputs.hasKids"
+                          #formInputChildName="ngModel"
                         />
-                        <nz-form-explain></nz-form-explain>
+
+                        <nz-form-explain
+                          *ngIf="
+                            !formInputChildName.valid &&
+                            (formInputChildName.touched || formInputs.hasKids)
+                          "
+                        >
+                          <ng-container
+                            *ngIf="formInputChildName.errors?.required"
+                          >
+                            Please enter a name for your child
+                          </ng-container>
+
+                          <ng-container
+                            *ngIf="formInputChildName.errors?.pattern"
+                          >
+                            Alphabetical first and Last name only please
+                          </ng-container>
+                        </nz-form-explain>
                       </nz-form-control>
                     </nz-form-item>
 
