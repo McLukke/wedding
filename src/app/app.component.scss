@@ -1,9 +1,13 @@
 .main {
   display: flex;
   flex: 1;
-  padding: 3em;
+  padding: 2rem;
   min-height: 100%;
   position: relative;
+
+  @media (min-width: 992px) {
+    padding: 4rem;
+  }
 
   .custom-gabriola {
     font-family: Gabriola, Sans-serif;
@@ -75,11 +79,22 @@
 
       form {
         margin-top: 3rem;
-        padding-bottom: 5rem;
 
         .vegetarian-disclaimer {
           margin-top: 2.25rem;
           line-height: 1.5rem;
+        }
+      }
+
+      .tab-style {
+        padding-bottom: 5rem;
+
+        @media (min-width: 992px) {
+          padding-bottom: 10rem;
+        }
+
+        @media (min-width: 1200px) {
+          padding-bottom: 17rem;
         }
       }
     }
