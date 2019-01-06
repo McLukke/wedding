@@ -9,7 +9,7 @@ import { AppService } from "./app.service";
 export class AppComponent {
   title = "wedding";
   formInputs = {
-    name: "",
+    yourName: "",
     hasGuest: false,
     guestName: "",
     hasKids: false,
