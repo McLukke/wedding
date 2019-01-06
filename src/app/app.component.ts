@@ -16,7 +16,9 @@ export class AppComponent {
     vegetarian: false
   };
 
-  tabs = ["RSVP", "Registry"];
+  tabs = ["Venue", "RSVP", "Registry"];
+
+  selectedTab = 1;
 
   constructor(private _appService: AppService) {}
 

@@ -80,9 +80,13 @@
       form {
         margin-top: 3rem;
 
-        .vegetarian-disclaimer {
+        .vegetarian {
           margin-top: 2.25rem;
           line-height: 1.5rem;
+
+          &.label-text {
+            margin-top: 1rem;
+          }
         }
       }
 

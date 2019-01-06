@@ -6,11 +6,6 @@
     <div class="content">
       <img class="logo" src="assets/double_happiness.svg" />
 
-      <div class="date-time">
-        <span>Saturday</span> <span class="custom-gabriola">21.09.19</span>
-        <span>6:00pm</span>
-      </div>
-
       <div class="celebration">
         Join us for a celebration of love, laughter, friendship and family as
       </div>
@@ -18,11 +13,6 @@
       <div class="our-names">Kenny<span class="ampersand">&</span>Jane</div>
 
       <div>begin their new life together</div>
-
-      <div class="venue">Crown Prince Fine Dining & Banquet</div>
-      <div class="venue venue-location">
-        3600 Victoria Park Avenue, North York, ON M2H 3B2
-      </div>
 
       <div nz-row>
         <div
@@ -34,20 +24,31 @@
           nzXXL="8"
           style="z-index: 100"
         >
-          <nz-tabset [nzType]="'line'">
+          <nz-tabset [nzType]="'line'" [(nzSelectedIndex)]="selectedTab">
             <nz-tab *ngFor="let tabName of tabs" [nzTitle]="tabName">
               <div class="tab-style">
-                <div *ngIf="tabName === 'RSVP'">
+                <div *ngIf="selectedTab === 0">
+                  <div class="date-time">
+                    <span>Saturday</span>
+                    <span class="custom-gabriola">21.09.19</span>
+                    <span>6:00pm</span>
+                  </div>
+
+                  <div class="venue">Crown Prince Fine Dining & Banquet</div>
+                  <div class="venue venue-location">
+                    3600 Victoria Park Avenue, North York, ON M2H 3B2
+                  </div>
+                </div>
+
+                <div *ngIf="selectedTab === 1">
                   <form
                     nz-form
                     (ngSubmit)="handleSubmit()"
                     #invitationForm="ngForm"
                   >
                     <nz-form-item>
-                      <nz-form-control [nzXs]="0" [nzLg]="4"></nz-form-control>
-
                       <nz-form-label
-                        [nzLg]="4"
+                        [nzLg]="{ span: 4, offset: 4 }"
                         [nzMd]="8"
                         [nzSm]="24"
                         [nzXs]="24"
@@ -69,7 +70,7 @@
                         />
                       </nz-form-control>
 
-                      <nz-form-explain *ngIf="invitationForm.errors">
+                      <nz-form-explain *ngIf="!formInputs.name">
                         test
                       </nz-form-explain>
                     </nz-form-item>
@@ -80,6 +81,7 @@
                         [nzMd]="10"
                         [nzSm]="24"
                         [nzXs]="24"
+                        style="text-align: left;"
                       >
                         <label
                           nz-checkbox
@@ -122,6 +124,7 @@
                         [nzMd]="10"
                         [nzSm]="24"
                         [nzXs]="24"
+                        style="text-align: left;"
                       >
                         <label
                           nz-checkbox
@@ -160,7 +163,7 @@
 
                     <nz-form-item>
                       <nz-form-control [nzSpan]="24">
-                        <div class="vegetarian-disclaimer">
+                        <div class="vegetarian">
                           The Traditional 12 course menu includes 1 course of
                           pork and 6 courses of seafood. <br />Please indicate
                           if <strong>you and your partner</strong> would like to
@@ -173,6 +176,7 @@
                           nz-checkbox
                           [(ngModel)]="formInputs.vegetarian"
                           name="vegetarian"
+                          class="vegetarian label-text"
                         >
                           <span>
                             I/we would like opt in for the Vegetarian table for
@@ -188,7 +192,7 @@
                   </form>
                 </div>
 
-                <div class="tab-style" *ngIf="tabName === 'Registry'">
+                <div class="tab-style" *ngIf="selectedTab === 2">
                   As our wedding day draws near We hope our sentiment is clear
                   We need you there as we are wed To witness our love as vows
                   are said But as for gifts, please don't try To find the ideal
