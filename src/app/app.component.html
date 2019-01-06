@@ -22,7 +22,7 @@
       <span class="venue">Crown Prince Fine Dining & Banquet</span> <br />
       <span>3600 Victoria Park Avenue, North York, ON M2H 3B2</span>
 
-      <div nz-row nzType="flex" nzJustify="center">
+      <div nz-row style="margin-top: 2rem;">
         <div
           nz-col
           nzXs="24"
@@ -32,124 +32,157 @@
           nzXXL="8"
           style="z-index: 100"
         >
-          <form nz-form (ngSubmit)="handleSubmit()" #invitationForm="ngForm">
-            <nz-form-item>
-              <nz-form-control [nzXs]="0" [nzLg]="4"></nz-form-control>
-
-              <nz-form-label [nzLg]="4" [nzMd]="8" [nzSm]="24" [nzXs]="24"
-                >Full Name</nz-form-label
-              >
-              <nz-form-control
-                nzHasFeedback
-                [nzLg]="12"
-                [nzMd]="16"
-                [nzSm]="24"
-                [nzXs]="24"
-              >
-                <input
-                  nz-input
-                  required
-                  pattern="[a-zA-Z][a-zA-Z]+"
-                  [(ngModel)]="formInputs.name"
-                  name="name"
-                />
-              </nz-form-control>
-
-              <nz-form-explain *ngIf="invitationForm.errors">
-                test
-              </nz-form-explain>
-            </nz-form-item>
-
-            <nz-form-item>
-              <nz-form-control [nzXl]="10" [nzMd]="10" [nzSm]="24" [nzXs]="24">
-                <label
-                  nz-checkbox
-                  [(ngModel)]="formInputs.hasGuest"
-                  name="hasGuest"
+          <nz-tabset [nzType]="'line'">
+            <nz-tab *ngFor="let tabName of tabs" [nzTitle]="tabName">
+              <div *ngIf="tabName === 'RSVP'">
+                <form
+                  nz-form
+                  (ngSubmit)="handleSubmit()"
+                  #invitationForm="ngForm"
                 >
-                  <span>I am bringing a guest</span>
-                </label>
-                <nz-form-explain> </nz-form-explain>
-              </nz-form-control>
+                  <nz-form-item>
+                    <nz-form-control [nzXs]="0" [nzLg]="4"></nz-form-control>
 
-              <nz-form-label [nzXl]="4" [nzMd]="5" [nzSm]="24" [nzXs]="24"
-                >Guest Name</nz-form-label
-              >
-              <nz-form-control
-                nzValidateStatus=""
-                nzHasFeedback
-                [nzXl]="10"
-                [nzMd]="9"
-                [nzSm]="24"
-                [nzXs]="24"
-              >
-                <input
-                  nz-input
-                  [(ngModel)]="formInputs.guestName"
-                  name="guestName"
-                  [disabled]="!formInputs.hasGuest"
-                />
-                <nz-form-explain></nz-form-explain>
-              </nz-form-control>
-            </nz-form-item>
+                    <nz-form-label [nzLg]="4" [nzMd]="8" [nzSm]="24" [nzXs]="24"
+                      >Full Name</nz-form-label
+                    >
+                    <nz-form-control
+                      nzHasFeedback
+                      [nzLg]="12"
+                      [nzMd]="16"
+                      [nzSm]="24"
+                      [nzXs]="24"
+                    >
+                      <input
+                        nz-input
+                        required
+                        pattern="[a-zA-Z][a-zA-Z]+"
+                        [(ngModel)]="formInputs.name"
+                        name="name"
+                      />
+                    </nz-form-control>
 
-            <nz-form-item>
-              <nz-form-control [nzXl]="10" [nzMd]="10" [nzSm]="24" [nzXs]="24">
-                <label
-                  nz-checkbox
-                  [(ngModel)]="formInputs.hasKids"
-                  name="hasKids"
-                >
-                  <span>I am bringing a child</span>
-                </label>
-                <nz-form-explain></nz-form-explain>
-              </nz-form-control>
+                    <nz-form-explain *ngIf="invitationForm.errors">
+                      test
+                    </nz-form-explain>
+                  </nz-form-item>
 
-              <nz-form-label [nzXl]="4" [nzMd]="5" [nzSm]="24" [nzXs]="24"
-                >Name of child</nz-form-label
-              >
-              <nz-form-control
-                nzValidateStatus=""
-                nzHasFeedback
-                [nzXl]="10"
-                [nzMd]="9"
-                [nzSm]="24"
-                [nzXs]="24"
-              >
-                <input
-                  nz-input
-                  [(ngModel)]="formInputs.childName"
-                  name="childName"
-                  [disabled]="!formInputs.hasKids"
-                />
-                <nz-form-explain></nz-form-explain>
-              </nz-form-control>
-            </nz-form-item>
+                  <nz-form-item>
+                    <nz-form-control
+                      [nzXl]="10"
+                      [nzMd]="10"
+                      [nzSm]="24"
+                      [nzXs]="24"
+                    >
+                      <label
+                        nz-checkbox
+                        [(ngModel)]="formInputs.hasGuest"
+                        name="hasGuest"
+                      >
+                        <span>I am bringing a guest</span>
+                      </label>
+                      <nz-form-explain> </nz-form-explain>
+                    </nz-form-control>
 
-            <nz-form-item>
-              <nz-form-control [nzSpan]="24">
-                <div style="margin-top: 3rem; line-height: 1.5rem;">
-                  The Traditional 12 course menu includes 1 course of pork and 6
-                  courses of seafood. <br />Please indicate if
-                  <strong>you and your partner</strong> would like to opt in for
-                  a <strong>separate Vegetarian table</strong> for the evening
-                </div>
+                    <nz-form-label [nzXl]="4" [nzMd]="5" [nzSm]="24" [nzXs]="24"
+                      >Guest Name</nz-form-label
+                    >
+                    <nz-form-control
+                      nzValidateStatus=""
+                      nzHasFeedback
+                      [nzXl]="10"
+                      [nzMd]="9"
+                      [nzSm]="24"
+                      [nzXs]="24"
+                    >
+                      <input
+                        nz-input
+                        [(ngModel)]="formInputs.guestName"
+                        name="guestName"
+                        [disabled]="!formInputs.hasGuest"
+                      />
+                      <nz-form-explain></nz-form-explain>
+                    </nz-form-control>
+                  </nz-form-item>
 
-                <label
-                  nz-checkbox
-                  [(ngModel)]="formInputs.vegetarian"
-                  name="vegetarian"
-                >
-                  <span>
-                    I/we would like opt in for the Vegetarian table for the
-                    evening
-                  </span>
-                </label>
-              </nz-form-control>
-            </nz-form-item>
+                  <nz-form-item>
+                    <nz-form-control
+                      [nzXl]="10"
+                      [nzMd]="10"
+                      [nzSm]="24"
+                      [nzXs]="24"
+                    >
+                      <label
+                        nz-checkbox
+                        [(ngModel)]="formInputs.hasKids"
+                        name="hasKids"
+                      >
+                        <span>I am bringing a child</span>
+                      </label>
+                      <nz-form-explain></nz-form-explain>
+                    </nz-form-control>
 
-            <button type="submit" nz-button nzType="primary">RSVP now</button>
-          </form>
+                    <nz-form-label [nzXl]="4" [nzMd]="5" [nzSm]="24" [nzXs]="24"
+                      >Name of child</nz-form-label
+                    >
+                    <nz-form-control
+                      nzValidateStatus=""
+                      nzHasFeedback
+                      [nzXl]="10"
+                      [nzMd]="9"
+                      [nzSm]="24"
+                      [nzXs]="24"
+                    >
+                      <input
+                        nz-input
+                        [(ngModel)]="formInputs.childName"
+                        name="childName"
+                        [disabled]="!formInputs.hasKids"
+                      />
+                      <nz-form-explain></nz-form-explain>
+                    </nz-form-control>
+                  </nz-form-item>
+
+                  <nz-form-item>
+                    <nz-form-control [nzSpan]="24">
+                      <div style="margin-top: 3rem; line-height: 1.5rem;">
+                        The Traditional 12 course menu includes 1 course of pork
+                        and 6 courses of seafood. <br />Please indicate if
+                        <strong>you and your partner</strong> would like to opt
+                        in for a <strong>separate Vegetarian table</strong> for
+                        the evening
+                      </div>
+
+                      <label
+                        nz-checkbox
+                        [(ngModel)]="formInputs.vegetarian"
+                        name="vegetarian"
+                      >
+                        <span>
+                          I/we would like opt in for the Vegetarian table for
+                          the evening
+                        </span>
+                      </label>
+                    </nz-form-control>
+                  </nz-form-item>
+
+                  <button type="submit" nz-button nzType="primary">
+                    RSVP now
+                  </button>
+                </form>
+              </div>
+
+              <div *ngIf="tabName === 'Registry'">
+                As our wedding day draws near We hope our sentiment is clear We
+                need you there as we are wed To witness our love as vows are
+                said But as for gifts, please don't try To find the ideal thing
+                to buy We have no list of pots and pans Just hopes and dreams
+                and honeymoon plans So if a gift is on your mind A contribution
+                would be kind~ It will help us more than words can say To
+                celebrate our special day Thank you!
+              </div>
+            </nz-tab>
+          </nz-tabset>
         </div>
       </div>
     </div>

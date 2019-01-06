@@ -16,6 +16,8 @@ export class AppComponent {
     vegetarian: false
   };
 
+  tabs = ["RSVP", "Registry"];
+
   constructor(private _appService: AppService) {}
 
   handleSubmit() {
