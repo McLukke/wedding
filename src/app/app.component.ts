@@ -8,7 +8,7 @@ import { AppService } from "./app.service";
 })
 export class AppComponent {
   formInputs = {
-    yourName: "",
+    name: "",
     hasGuest: false,
     guestName: "",
     hasKids: false,
@@ -18,9 +18,7 @@ export class AppComponent {
 
   constructor(private _appService: AppService) {}
 
-  handleSubmit(event, value) {
-    console.log("event: ", event);
-    console.log("value: ", value);
+  handleSubmit() {
     console.log("this.formInputs: ", this.formInputs);
 
     // this._appService.submitToServer(this.formInputs).subscribe(

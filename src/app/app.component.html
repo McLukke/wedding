@@ -1,6 +1,6 @@
 <!-- The content below is only a placeholder and can be replaced. -->
 <div class="main">
-  <div class="flowers"><img src="assets/flowers.jpg" /></div>
+  <div class="flowers"><img src="assets/flowers.png" /></div>
 
   <div class="content-wrapper">
     <div class="content">
@@ -17,18 +17,22 @@
 
       <div class="our-names">Kenny<span class="ampersand">&</span>Jane</div>
 
-      <div>begin their new life together</div>
+      <div style="margin-bottom: 2rem;">begin their new life together</div>
 
-      <span class="venue">Crown Prince Fine Dining & Banquet</span>
+      <span class="venue">Crown Prince Fine Dining & Banquet</span> <br />
       <span>3600 Victoria Park Avenue, North York, ON M2H 3B2</span>
 
       <div nz-row nzType="flex" nzJustify="center">
-        <div nz-col nzXs="24" nzMd="20" nzLg="16" nzXl="12" nzXXL="8">
-          <form
-            nz-form
-            (ngSubmit)="handleSubmit($event, invitationForm.value)"
-            #invitationForm="ngForm"
-          >
+        <div
+          nz-col
+          nzXs="24"
+          nzMd="20"
+          nzLg="16"
+          nzXl="12"
+          nzXXL="8"
+          style="z-index: 100"
+        >
+          <form nz-form (ngSubmit)="handleSubmit()" #invitationForm="ngForm">
             <nz-form-item>
               <nz-form-control [nzXs]="0" [nzLg]="4"></nz-form-control>
 
@@ -42,9 +46,18 @@
                 [nzSm]="24"
                 [nzXs]="24"
               >
-                <input nz-input [(ngModel)]="formInputs.name" name="name" />
-                <nz-form-explain></nz-form-explain>
+                <input
+                  nz-input
+                  required
+                  pattern="[a-zA-Z][a-zA-Z]+"
+                  [(ngModel)]="formInputs.name"
+                  name="name"
+                />
               </nz-form-control>
+
+              <nz-form-explain *ngIf="invitationForm.errors">
+                test
+              </nz-form-explain>
             </nz-form-item>
 
             <nz-form-item>
@@ -54,13 +67,13 @@
                   [(ngModel)]="formInputs.hasGuest"
                   name="hasGuest"
                 >
-                  <span>Are you bringing a guest?</span>
+                  <span>I am bringing a guest</span>
                 </label>
-                <nz-form-explain></nz-form-explain>
+                <nz-form-explain> </nz-form-explain>
               </nz-form-control>
 
               <nz-form-label [nzXl]="4" [nzMd]="5" [nzSm]="24" [nzXs]="24"
-                >Partner Name</nz-form-label
+                >Guest Name</nz-form-label
               >
               <nz-form-control
                 nzValidateStatus=""
@@ -87,7 +100,7 @@
                   [(ngModel)]="formInputs.hasKids"
                   name="hasKids"
                 >
-                  <span>Are you bringing a child?</span>
+                  <span>I am bringing a child</span>
                 </label>
                 <nz-form-explain></nz-form-explain>
               </nz-form-control>
@@ -114,28 +127,30 @@
             </nz-form-item>
 
             <nz-form-item>
-              <nz-form-control [nzXs]="24">
+              <nz-form-control [nzSpan]="24">
+                <div style="margin-top: 3rem; line-height: 1.5rem;">
+                  The Traditional 12 course menu includes 1 course of pork and 6
+                  courses of seafood. <br />Please indicate if
+                  <strong>you and your partner</strong> would like to opt in for
+                  a <strong>separate Vegetarian table</strong> for the evening
+                </div>
+
                 <label
                   nz-checkbox
                   [(ngModel)]="formInputs.vegetarian"
                   name="vegetarian"
                 >
-                  <span
-                    >I/we would like to opt in for the Vegetarian menu for the
-                    evening</span
-                  >
+                  <span>
+                    I/we would like opt in for the Vegetarian table for the
+                    evening
+                  </span>
                 </label>
-                <nz-form-explain></nz-form-explain>
               </nz-form-control>
             </nz-form-item>
 
             <button type="submit" nz-button nzType="primary">
               I will Celebrate with you!
             </button>
-
-            <pre>
-              {{ formInputs | json }}
-            </pre>
           </form>
         </div>
       </div>
