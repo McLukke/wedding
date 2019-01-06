@@ -42,7 +42,7 @@
                 [nzSm]="24"
                 [nzXs]="24"
               >
-                <input nz-input [ngModel]="formInputs.name" name="name" />
+                <input nz-input [(ngModel)]="formInputs.name" name="name" />
                 <nz-form-explain></nz-form-explain>
               </nz-form-control>
             </nz-form-item>
@@ -51,7 +51,7 @@
               <nz-form-control [nzXl]="10" [nzMd]="10" [nzSm]="24" [nzXs]="24">
                 <label
                   nz-checkbox
-                  [ngModel]="formInputs.hasGuest"
+                  [(ngModel)]="formInputs.hasGuest"
                   name="hasGuest"
                 >
                   <span>Are you bringing a guest?</span>
@@ -72,7 +72,7 @@
               >
                 <input
                   nz-input
-                  [ngModel]="formInputs.guestName"
+                  [(ngModel)]="formInputs.guestName"
                   name="guestName"
                   [disabled]="!formInputs.hasGuest"
                 />
@@ -84,7 +84,7 @@
               <nz-form-control [nzXl]="10" [nzMd]="10" [nzSm]="24" [nzXs]="24">
                 <label
                   nz-checkbox
-                  [ngModel]="formInputs.hasKids"
+                  [(ngModel)]="formInputs.hasKids"
                   name="hasKids"
                 >
                   <span>Are you bringing a child?</span>
@@ -105,7 +105,7 @@
               >
                 <input
                   nz-input
-                  [ngModel]="formInputs.childName"
+                  [(ngModel)]="formInputs.childName"
                   name="childName"
                   [disabled]="!formInputs.hasKids"
                 />
@@ -117,8 +117,8 @@
               <nz-form-control [nzXs]="24">
                 <label
                   nz-checkbox
-                  [ngModel]="formInputs.hasKids"
-                  name="hasKids"
+                  [(ngModel)]="formInputs.vegetarian"
+                  name="vegetarian"
                 >
                   <span
                     >I/we would like to opt in for the Vegetarian menu for the
