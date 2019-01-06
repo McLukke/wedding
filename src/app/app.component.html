@@ -36,22 +36,25 @@
             #invitationForm="ngForm"
           >
             <nz-form-item>
-              <nz-form-label [nzXl]="4" [nzMd]="8" [nzSm]="8" [nzXs]="24"
+              <nz-form-control [nzXs]="0" [nzLg]="4"></nz-form-control>
+
+              <nz-form-label [nzLg]="4" [nzMd]="8" [nzSm]="24" [nzXs]="24"
                 >Full Name</nz-form-label
               >
               <nz-form-control
-                nzValidateStatus="error"
                 nzHasFeedback
-                [nzXl]="8"
+                [nzLg]="12"
                 [nzMd]="16"
-                [nzSm]="16"
+                [nzSm]="24"
                 [nzXs]="24"
               >
                 <input nz-input [ngModel]="formInputs.name" name="name" />
                 <nz-form-explain></nz-form-explain>
               </nz-form-control>
+            </nz-form-item>
 
-              <nz-form-control [nzXl]="12" [nzXs]="24">
+            <nz-form-item>
+              <nz-form-control [nzLg]="8" [nzMd]="10" [nzSm]="24" [nzXs]="24">
                 <label
                   nz-checkbox
                   [ngModel]="formInputs.hasGuest"
@@ -61,14 +64,16 @@
                 </label>
                 <nz-form-explain></nz-form-explain>
               </nz-form-control>
-            </nz-form-item>
 
-            <nz-form-item style="margin: 0;">
-              <nz-form-label [nzSm]="8" [nzXs]="24">Partner Name</nz-form-label>
+              <nz-form-label [nzLg]="4" [nzMd]="5" [nzSm]="24" [nzXs]="24"
+                >Partner Name</nz-form-label
+              >
               <nz-form-control
                 nzValidateStatus=""
                 nzHasFeedback
-                [nzMd]="16"
+                [nzLg]="12"
+                [nzMd]="9"
+                [nzSm]="24"
                 [nzXs]="24"
               >
                 <input
@@ -80,39 +85,57 @@
               </nz-form-control>
             </nz-form-item>
 
-            <div class="form-group">
-              <label for="hasKids">Are you bringing a child?</label>
-              <input
-                [(ngModel)]="formInputs.hasKids"
-                name="hasKids"
-                type="checkbox"
-                checked
-              />
-            </div>
+            <nz-form-item>
+              <nz-form-control [nzLg]="8" [nzMd]="10" [nzSm]="24" [nzXs]="24">
+                <label
+                  nz-checkbox
+                  [ngModel]="formInputs.hasKids"
+                  name="hasKids"
+                >
+                  <span>Are you bringing a child?</span>
+                </label>
+                <nz-form-explain></nz-form-explain>
+              </nz-form-control>
 
-            <div class="form-group">
-              <label for="childName">Name of child</label>
-              <input
-                [(ngModel)]="formInputs.childName"
-                name="childName"
-                type="text"
-                placeholder="Enter child name here"
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="vegetarian"
-                >I/we would like to opt in for the Vegetarian menu for the
-                evening</label
+              <nz-form-label [nzLg]="4" [nzMd]="5" [nzSm]="24" [nzXs]="24"
+                >Name of child</nz-form-label
               >
-              <input
-                [(ngModel)]="formInputs.vegetarian"
-                name="vegetarian"
-                type="checkbox"
-                checked
-              />
-            </div>
-            <button type="submit">I will Celebrate with you!</button>
+              <nz-form-control
+                nzValidateStatus=""
+                nzHasFeedback
+                [nzLg]="12"
+                [nzMd]="9"
+                [nzSm]="24"
+                [nzXs]="24"
+              >
+                <input
+                  nz-input
+                  [ngModel]="formInputs.childName"
+                  name="childName"
+                />
+                <nz-form-explain></nz-form-explain>
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+              <nz-form-control [nzXs]="24">
+                <label
+                  nz-checkbox
+                  [ngModel]="formInputs.hasKids"
+                  name="hasKids"
+                >
+                  <span
+                    >I/we would like to opt in for the Vegetarian menu for the
+                    evening</span
+                  >
+                </label>
+                <nz-form-explain></nz-form-explain>
+              </nz-form-control>
+            </nz-form-item>
+
+            <button type="submit" nz-button nzType="primary">
+              I will Celebrate with you!
+            </button>
           </form>
         </div>
       </div>
