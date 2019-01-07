@@ -287,7 +287,12 @@
                       </nz-form-control>
                     </nz-form-item>
 
-                    <button type="submit" nz-button nzType="primary">
+                    <button
+                      type="submit"
+                      nz-button
+                      nzType="primary"
+                      [disabled]="invitationForm.invalid"
+                    >
                       RSVP now
                     </button>
 
