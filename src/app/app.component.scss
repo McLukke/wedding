@@ -42,7 +42,19 @@
         align-items: center;
       }
 
+      .parents {
+        font-family: Gabriola, Sans-serif;
+        font-weight: bold;
+        font-size: 2rem;
+
+        .title {
+          font-style: italic;
+          font-size: 1.25rem;
+        }
+      }
+
       .celebration {
+        margin-top: 2rem;
         justify-content: center;
         flex-direction: column;
       }
@@ -59,6 +71,10 @@
           font-size: 3rem;
           margin: 0 1.5rem;
         }
+      }
+
+      .closing-statement {
+        margin: 1rem 0 2rem 0;
       }
 
       .venue {
