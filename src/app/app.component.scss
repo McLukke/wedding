@@ -89,6 +89,15 @@
 
       .venue-image {
         width: 100%;
+        padding-bottom: 0;
+
+        @media (min-width: 640px) {
+          padding-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+          padding-bottom: 5rem;
+        }
       }
 
       .rsvp {
