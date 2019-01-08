@@ -40,11 +40,16 @@
       .parents {
         font-family: Gabriola, Sans-serif;
         font-weight: bold;
-        font-size: 2rem;
+        font-size: 1.6rem;
 
         .title {
           font-style: italic;
           font-size: 1.25rem;
+          margin-top: 1rem;
+
+          @media (min-width: 768px) {
+            margin-top: 0;
+          }
         }
       }
 
