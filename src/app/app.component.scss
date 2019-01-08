@@ -37,11 +37,6 @@
         justify-content: center;
       }
 
-      .date-time {
-        justify-content: center;
-        align-items: center;
-      }
-
       .parents {
         font-family: Gabriola, Sans-serif;
         font-weight: bold;
@@ -75,6 +70,24 @@
 
       .closing-statement {
         margin: 1rem 0 2rem 0;
+      }
+
+      .tab-style {
+        padding-bottom: 5rem;
+        font-family: Helvetica, Sans-serif;
+
+        @media (min-width: 992px) {
+          padding-bottom: 10rem;
+        }
+
+        @media (min-width: 1200px) {
+          padding-bottom: 17rem;
+        }
+      }
+
+      .date-time {
+        justify-content: center;
+        align-items: center;
       }
 
       .venue {
@@ -124,16 +137,8 @@
         }
       }
 
-      .tab-style {
-        padding-bottom: 5rem;
-
-        @media (min-width: 992px) {
-          padding-bottom: 10rem;
-        }
-
-        @media (min-width: 1200px) {
-          padding-bottom: 17rem;
-        }
+      .registry {
+        margin-top: 2rem;
       }
     }
   }
