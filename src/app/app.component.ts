@@ -22,7 +22,7 @@ export class AppComponent {
 
   selectedTab = 0;
 
-  serverError;
+  serverError = "";
 
   rsvpAlready = Boolean(window.localStorage.getItem("rsvpAlready") === "true");
 
@@ -32,7 +32,7 @@ export class AppComponent {
   constructor(private _appService: AppService) {}
 
   handleSubmit() {
-    this.serverError = undefined;
+    this.serverError = "";
 
     this._appService.submitToServer(this.formInputs).subscribe(
       res => {
@@ -41,8 +41,15 @@ export class AppComponent {
         this.rsvpAlready = true;
       },
       err => {
-        this.serverError =
-          "Sorry, something unexpected has occurred on our servers.";
+        console.log("err: ", err);
+        console.log("err.statusCode: ", err.statusCode);
+        if (err.statusCode.includes("409")) {
+          this.serverError =
+            "It seems you have replied already. Don't worry, we got you covered. If you'd like to make changes, please email us.";
+        } else {
+          this.serverError =
+            "Sorry, something unexpected has occurred on our servers.";
+        }
       }
     );
   }
