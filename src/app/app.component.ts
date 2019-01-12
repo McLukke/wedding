@@ -26,6 +26,8 @@ export class AppComponent {
 
   rsvpAlready = Boolean(window.localStorage.getItem("rsvpAlready") === "true");
 
+  isLoading = false;
+
   googleUrl =
     "https://www.google.com/maps/place/3600+Victoria+Park+Ave,+North+York,+ON+M2H+3B2/@43.8055214,-79.3395755,15z/data=!4m5!3m4!1s0x89d4d3752e2f2273:0x17611bc600aa20ec!8m2!3d43.8064622!4d-79.3374297";
 
@@ -33,19 +35,21 @@ export class AppComponent {
 
   handleSubmit() {
     this.serverError = "";
+    this.isLoading = true;
 
     this._appService.submitToServer(this.formInputs).subscribe(
       res => {
         this.formInputs = { ...initFormState };
         window.localStorage.setItem("rsvpAlready", "true");
         this.rsvpAlready = true;
+        this.isLoading = false;
       },
       err => {
-        console.log("err: ", err);
-        console.log("err.statusCode: ", err.statusCode);
-        if (err.statusCode.includes("409")) {
+        this.isLoading = false;
+
+        if (err.status.toString().includes("409")) {
           this.serverError =
-            "It seems you have replied already. Don't worry, we got you covered. If you'd like to make changes, please email us.";
+            "It seems you have replied already. If you'd like to make changes, please email us.";
         } else {
           this.serverError =
             "Sorry, something unexpected has occurred on our servers.";

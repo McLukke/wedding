@@ -326,7 +326,8 @@
                               type="submit"
                               nz-button
                               nzType="primary"
-                              [disabled]="invitationForm.invalid"
+                              [disabled]="invitationForm.invalid || isLoading"
+                              [nzLoading]="isLoading"
                             >
                               RSVP now
                             </button>
