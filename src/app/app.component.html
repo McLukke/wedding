@@ -1,336 +1,365 @@
-<div class="main">
-  <div class="flowers">
-    <img class="top" src="assets/flowers.png" />
-    <img src="assets/flowers.png" />
-  </div>
-
-  <div class="content-wrapper">
-    <div class="content">
-      <img class="logo" src="assets/double_happiness.svg" />
-
-      <div nz-row>
-        <div
-          nz-col
-          nzXs="24"
-          nzMd="20"
-          nzLg="16"
-          nzXl="12"
-          nzXXL="8"
-          style="z-index: 100"
-        >
-          <div nz-row class="parents">
-            <div nz-col nzXs="24" nzMd="12">
-              <div class="title">Mr. & Mrs.</div>
-              <div>Michael Luk Man Ho</div>
-              <div>Tracy Lin Xiao Hong</div>
-            </div>
-
-            <div nz-col nzXs="24" nzMd="12">
-              <div class="title">Mr. & Mrs.</div>
-              <div>Stanley Poon Poon Yui</div>
-              <div>Mona Tong Kam Ha</div>
-            </div>
-          </div>
-        </div>
+<div nz-row nzType="flex" nzJustify="center">
+  <div nz-col nzSpan="24">
+    <div class="main">
+      <div class="flowers">
+        <img class="top" src="assets/flowers.png" />
+        <img src="assets/flowers.png" />
       </div>
 
-      <div class="celebration">
-        Invite you to celebrate <br />
-        love, laughter, friendship and family as
-      </div>
+      <div nz-row nzType="flex" nzJustify="center" style="width: 100%;">
+        <div nz-col nzXs="24" nzMd="20" nzLg="18" nzXl="14" nzXXL="8">
+          <div class="content-wrapper">
+            <div class="content">
+              <img class="logo" src="assets/double_happiness.svg" />
 
-      <div class="our-names">Kenny<span class="ampersand">&</span>Jane</div>
-
-      <div class="closing-statement">begin their new life together</div>
-
-      <div class="date-time">
-        <span>Saturday</span> <span class="custom-gabriola">21.09.19</span>
-        <span>6:00pm</span>
-      </div>
-
-      <div nz-row>
-        <div
-          nz-col
-          nzXs="24"
-          nzMd="20"
-          nzLg="16"
-          nzXl="12"
-          nzXXL="8"
-          style="z-index: 100"
-        >
-          <nz-tabset [nzType]="'line'" [(nzSelectedIndex)]="selectedTab">
-            <nz-tab *ngFor="let tabName of tabs" [nzTitle]="tabName">
-              <div class="tab-style">
-                <div *ngIf="selectedTab === 0">
-                  <div class="venue">Crown Prince Fine Dining & Banquet</div>
-                  <div class="venue venue-location">
-                    3600 Victoria Park Avenue, North York, ON M2H 3B2
-                  </div>
-
-                  <a href="{{ googleUrl }}" target="_blank">
-                    <img
-                      class="venue-image"
-                      src="assets/location.png"
-                      alt="Crown Prince Fine Dining & Banquet"
-                    />
-                  </a>
-                </div>
-
-                <div class="tab-style" *ngIf="selectedTab === 1">
-                  <form
-                    *ngIf="!rsvpAlready"
-                    nz-form
-                    (ngSubmit)="handleSubmit()"
-                    #invitationForm="ngForm"
-                  >
-                    <nz-form-item>
-                      <nz-form-label
-                        [nzLg]="{ span: 4, offset: 4 }"
-                        [nzMd]="8"
-                        [nzSm]="24"
-                        [nzXs]="24"
-                        >Full Name</nz-form-label
-                      >
-                      <nz-form-control
-                        nzValidateStatus="{{
-                          !formInputName.valid && formInputName.touched
-                            ? 'error'
-                            : ''
-                        }}"
-                        nzHasFeedback
-                        [nzLg]="12"
-                        [nzMd]="16"
-                        [nzSm]="24"
-                        [nzXs]="24"
-                      >
-                        <input
-                          nz-input
-                          required
-                          pattern="[a-zA-Z]+[\s][a-zA-Z]+"
-                          [(ngModel)]="formInputs.name"
-                          name="name"
-                          #formInputName="ngModel"
-                        />
-
-                        <nz-form-explain
-                          *ngIf="!formInputName.valid && formInputName.touched"
-                        >
-                          <ng-container *ngIf="formInputName.errors?.required">
-                            Please enter your name
-                          </ng-container>
-
-                          <ng-container *ngIf="formInputName.errors?.pattern">
-                            Alphabetical first and Last name only please
-                          </ng-container>
-                        </nz-form-explain>
-                      </nz-form-control>
-                    </nz-form-item>
-
-                    <nz-form-item>
-                      <nz-form-control
-                        [nzXl]="10"
-                        [nzMd]="10"
-                        [nzSm]="24"
-                        [nzXs]="24"
-                        style="text-align: left;"
-                      >
-                        <label
-                          nz-checkbox
-                          [(ngModel)]="formInputs.hasGuest"
-                          name="hasGuest"
-                        >
-                          <span>I am bringing a guest</span>
-                        </label>
-                        <nz-form-explain> </nz-form-explain>
-                      </nz-form-control>
-
-                      <nz-form-label
-                        [nzXl]="4"
-                        [nzMd]="5"
-                        [nzSm]="24"
-                        [nzXs]="24"
-                        >Guest Name</nz-form-label
-                      >
-                      <nz-form-control
-                        nzValidateStatus="{{
-                          !formInputGuestName.valid &&
-                          formInputGuestName.touched
-                            ? 'error'
-                            : !formInputGuestName.valid &&
-                              !formInputGuestName.touched &&
-                              formInputs.hasGuest
-                            ? 'warning'
-                            : ''
-                        }}"
-                        nzHasFeedback
-                        [nzXl]="10"
-                        [nzMd]="9"
-                        [nzSm]="24"
-                        [nzXs]="24"
-                      >
-                        <input
-                          nz-input
-                          required
-                          pattern="[a-zA-Z]+[\s][a-zA-Z]+"
-                          [(ngModel)]="formInputs.guestName"
-                          name="guestName"
-                          [disabled]="!formInputs.hasGuest"
-                          #formInputGuestName="ngModel"
-                        />
-
-                        <nz-form-explain
-                          *ngIf="
-                            !formInputGuestName.valid &&
-                            (formInputGuestName.touched || formInputs.hasGuest)
-                          "
-                        >
-                          <ng-container
-                            *ngIf="formInputGuestName.errors?.required"
-                          >
-                            Please enter a name for your guest
-                          </ng-container>
-
-                          <ng-container
-                            *ngIf="formInputGuestName.errors?.pattern"
-                          >
-                            Alphabetical first and Last name only please
-                          </ng-container>
-                        </nz-form-explain>
-                      </nz-form-control>
-                    </nz-form-item>
-
-                    <nz-form-item>
-                      <nz-form-control
-                        [nzXl]="10"
-                        [nzMd]="10"
-                        [nzSm]="24"
-                        [nzXs]="24"
-                        style="text-align: left;"
-                      >
-                        <label
-                          nz-checkbox
-                          [(ngModel)]="formInputs.hasKids"
-                          name="hasKids"
-                        >
-                          <span>I am bringing a child</span>
-                        </label>
-                      </nz-form-control>
-
-                      <nz-form-label
-                        [nzXl]="4"
-                        [nzMd]="5"
-                        [nzSm]="24"
-                        [nzXs]="24"
-                        >Name of child</nz-form-label
-                      >
-                      <nz-form-control
-                        nzValidateStatus="{{
-                          !formInputChildName.valid &&
-                          formInputChildName.touched
-                            ? 'error'
-                            : !formInputChildName.valid &&
-                              !formInputChildName.touched &&
-                              formInputs.hasKids
-                            ? 'warning'
-                            : ''
-                        }}"
-                        nzHasFeedback
-                        [nzXl]="10"
-                        [nzMd]="9"
-                        [nzSm]="24"
-                        [nzXs]="24"
-                      >
-                        <input
-                          nz-input
-                          required
-                          pattern="[a-zA-Z]+[\s][a-zA-Z]+"
-                          [(ngModel)]="formInputs.childName"
-                          name="childName"
-                          [disabled]="!formInputs.hasKids"
-                          #formInputChildName="ngModel"
-                        />
-
-                        <nz-form-explain
-                          *ngIf="
-                            !formInputChildName.valid &&
-                            (formInputChildName.touched || formInputs.hasKids)
-                          "
-                        >
-                          <ng-container
-                            *ngIf="formInputChildName.errors?.required"
-                          >
-                            Please enter a name for your child
-                          </ng-container>
-
-                          <ng-container
-                            *ngIf="formInputChildName.errors?.pattern"
-                          >
-                            Alphabetical first and Last name only please
-                          </ng-container>
-                        </nz-form-explain>
-                      </nz-form-control>
-                    </nz-form-item>
-
-                    <nz-form-item>
-                      <nz-form-control [nzSpan]="24">
-                        <div class="vegetarian">
-                          The Traditional 12 course menu includes 1 course of
-                          pork and 6 courses of seafood. <br />Please indicate
-                          if <strong>you and your partner</strong> would like to
-                          opt in for a
-                          <strong>separate Vegetarian table</strong> for the
-                          evening
-                        </div>
-
-                        <label
-                          nz-checkbox
-                          [(ngModel)]="formInputs.vegetarian"
-                          name="vegetarian"
-                          class="vegetarian label-text"
-                        >
-                          <span>
-                            I/we would like opt in for the Vegetarian table for
-                            the evening
-                          </span>
-                        </label>
-                      </nz-form-control>
-                    </nz-form-item>
-
-                    <button
-                      type="submit"
-                      nz-button
-                      nzType="primary"
-                      [disabled]="invitationForm.invalid"
-                    >
-                      RSVP now
-                    </button>
-
-                    <div *ngIf="serverError" class="server-error">
-                      {{ serverError }}
+              <div nz-row>
+                <div
+                  nz-col
+                  nzXs="24"
+                  nzMd="20"
+                  nzLg="16"
+                  nzXl="12"
+                  nzXXL="8"
+                  style="z-index: 100"
+                >
+                  <div nz-row class="parents">
+                    <div nz-col nzXs="24" nzMd="12">
+                      <div class="title">Mr. & Mrs.</div>
+                      <div>Michael Luk Man Ho</div>
+                      <div>Tracy Lin Xiao Hong</div>
                     </div>
-                  </form>
 
-                  <div class="rsvp-thank-you" *ngIf="rsvpAlready">
-                    You have responded to our invitation already, thank you for
-                    taking the time to fill this form out and to come celebrate
-                    with us. We look forward to seeing you on the day of.
-                  </div>
-                </div>
-
-                <div class="tab-style" *ngIf="selectedTab === 2">
-                  <div class="registry">
-                    As our wedding day draws near We hope our sentiment is clear
-                    We need you there as we are wed To witness our love as vows
-                    are said But as for gifts, please don't try To find the
-                    ideal thing to buy We have no list of pots and pans Just
-                    hopes and dreams and honeymoon plans So if a gift is on your
-                    mind A contribution would be kind~ It will help us more than
-                    words can say To celebrate our special day Thank you!
+                    <div nz-col nzXs="24" nzMd="12">
+                      <div class="title">Mr. & Mrs.</div>
+                      <div>Stanley Poon Poon Yui</div>
+                      <div>Mona Tong Kam Ha</div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </nz-tab>
-          </nz-tabset>
+
+              <div class="celebration">
+                Invite you to celebrate <br />
+                love, laughter, friendship and family as
+              </div>
+
+              <div class="our-names">
+                Kenny<span class="ampersand">&</span>Jane
+              </div>
+
+              <div class="closing-statement">begin their new life together</div>
+
+              <div class="date-time">
+                <span>Saturday</span>
+                <span class="custom-gabriola">21.09.19</span>
+                <span>6:00pm</span>
+              </div>
+
+              <div nz-row>
+                <div
+                  nz-col
+                  nzXs="24"
+                  nzMd="20"
+                  nzLg="16"
+                  nzXl="12"
+                  nzXXL="8"
+                  style="z-index: 100"
+                >
+                  <nz-tabset
+                    [nzType]="'line'"
+                    [(nzSelectedIndex)]="selectedTab"
+                  >
+                    <nz-tab *ngFor="let tabName of tabs" [nzTitle]="tabName">
+                      <div class="tab-style">
+                        <div *ngIf="selectedTab === 0">
+                          <div class="venue">
+                            Crown Prince Fine Dining & Banquet
+                          </div>
+                          <div class="venue venue-location">
+                            3600 Victoria Park Avenue, North York, ON M2H 3B2
+                          </div>
+
+                          <a href="{{ googleUrl }}" target="_blank">
+                            <img
+                              class="venue-image"
+                              src="assets/location.png"
+                              alt="Crown Prince Fine Dining & Banquet"
+                            />
+                          </a>
+                        </div>
+
+                        <div class="tab-style" *ngIf="selectedTab === 1">
+                          <form
+                            *ngIf="!rsvpAlready"
+                            nz-form
+                            (ngSubmit)="handleSubmit()"
+                            #invitationForm="ngForm"
+                          >
+                            <nz-form-item>
+                              <nz-form-label
+                                [nzLg]="{ span: 4, offset: 4 }"
+                                [nzMd]="8"
+                                [nzSm]="24"
+                                [nzXs]="24"
+                                >Full Name</nz-form-label
+                              >
+                              <nz-form-control
+                                nzValidateStatus="{{
+                                  !formInputName.valid && formInputName.touched
+                                    ? 'error'
+                                    : ''
+                                }}"
+                                nzHasFeedback
+                                [nzLg]="12"
+                                [nzMd]="16"
+                                [nzSm]="24"
+                                [nzXs]="24"
+                              >
+                                <input
+                                  nz-input
+                                  required
+                                  pattern="[a-zA-Z]+[\s][a-zA-Z]+"
+                                  [(ngModel)]="formInputs.name"
+                                  name="name"
+                                  #formInputName="ngModel"
+                                />
+
+                                <nz-form-explain
+                                  *ngIf="
+                                    !formInputName.valid &&
+                                    formInputName.touched
+                                  "
+                                >
+                                  <ng-container
+                                    *ngIf="formInputName.errors?.required"
+                                  >
+                                    Please enter your name
+                                  </ng-container>
+
+                                  <ng-container
+                                    *ngIf="formInputName.errors?.pattern"
+                                  >
+                                    Alphabetical first and Last name only please
+                                  </ng-container>
+                                </nz-form-explain>
+                              </nz-form-control>
+                            </nz-form-item>
+
+                            <nz-form-item>
+                              <nz-form-control
+                                [nzXl]="10"
+                                [nzMd]="10"
+                                [nzSm]="24"
+                                [nzXs]="24"
+                                style="text-align: left;"
+                              >
+                                <label
+                                  nz-checkbox
+                                  [(ngModel)]="formInputs.hasGuest"
+                                  name="hasGuest"
+                                >
+                                  <span>I am bringing a guest</span>
+                                </label>
+                                <nz-form-explain> </nz-form-explain>
+                              </nz-form-control>
+
+                              <nz-form-label
+                                [nzXl]="4"
+                                [nzMd]="5"
+                                [nzSm]="24"
+                                [nzXs]="24"
+                                >Guest Name</nz-form-label
+                              >
+                              <nz-form-control
+                                nzValidateStatus="{{
+                                  !formInputGuestName.valid &&
+                                  formInputGuestName.touched
+                                    ? 'error'
+                                    : !formInputGuestName.valid &&
+                                      !formInputGuestName.touched &&
+                                      formInputs.hasGuest
+                                    ? 'warning'
+                                    : ''
+                                }}"
+                                nzHasFeedback
+                                [nzXl]="10"
+                                [nzMd]="9"
+                                [nzSm]="24"
+                                [nzXs]="24"
+                              >
+                                <input
+                                  nz-input
+                                  required
+                                  pattern="[a-zA-Z]+[\s][a-zA-Z]+"
+                                  [(ngModel)]="formInputs.guestName"
+                                  name="guestName"
+                                  [disabled]="!formInputs.hasGuest"
+                                  #formInputGuestName="ngModel"
+                                />
+
+                                <nz-form-explain
+                                  *ngIf="
+                                    !formInputGuestName.valid &&
+                                    (formInputGuestName.touched ||
+                                      formInputs.hasGuest)
+                                  "
+                                >
+                                  <ng-container
+                                    *ngIf="formInputGuestName.errors?.required"
+                                  >
+                                    Please enter a name for your guest
+                                  </ng-container>
+
+                                  <ng-container
+                                    *ngIf="formInputGuestName.errors?.pattern"
+                                  >
+                                    Alphabetical first and Last name only please
+                                  </ng-container>
+                                </nz-form-explain>
+                              </nz-form-control>
+                            </nz-form-item>
+
+                            <nz-form-item>
+                              <nz-form-control
+                                [nzXl]="10"
+                                [nzMd]="10"
+                                [nzSm]="24"
+                                [nzXs]="24"
+                                style="text-align: left;"
+                              >
+                                <label
+                                  nz-checkbox
+                                  [(ngModel)]="formInputs.hasKids"
+                                  name="hasKids"
+                                >
+                                  <span>I am bringing a child</span>
+                                </label>
+                              </nz-form-control>
+
+                              <nz-form-label
+                                [nzXl]="4"
+                                [nzMd]="5"
+                                [nzSm]="24"
+                                [nzXs]="24"
+                                >Name of child</nz-form-label
+                              >
+                              <nz-form-control
+                                nzValidateStatus="{{
+                                  !formInputChildName.valid &&
+                                  formInputChildName.touched
+                                    ? 'error'
+                                    : !formInputChildName.valid &&
+                                      !formInputChildName.touched &&
+                                      formInputs.hasKids
+                                    ? 'warning'
+                                    : ''
+                                }}"
+                                nzHasFeedback
+                                [nzXl]="10"
+                                [nzMd]="9"
+                                [nzSm]="24"
+                                [nzXs]="24"
+                              >
+                                <input
+                                  nz-input
+                                  required
+                                  pattern="[a-zA-Z]+[\s][a-zA-Z]+"
+                                  [(ngModel)]="formInputs.childName"
+                                  name="childName"
+                                  [disabled]="!formInputs.hasKids"
+                                  #formInputChildName="ngModel"
+                                />
+
+                                <nz-form-explain
+                                  *ngIf="
+                                    !formInputChildName.valid &&
+                                    (formInputChildName.touched ||
+                                      formInputs.hasKids)
+                                  "
+                                >
+                                  <ng-container
+                                    *ngIf="formInputChildName.errors?.required"
+                                  >
+                                    Please enter a name for your child
+                                  </ng-container>
+
+                                  <ng-container
+                                    *ngIf="formInputChildName.errors?.pattern"
+                                  >
+                                    Alphabetical first and Last name only please
+                                  </ng-container>
+                                </nz-form-explain>
+                              </nz-form-control>
+                            </nz-form-item>
+
+                            <nz-form-item>
+                              <nz-form-control [nzSpan]="24">
+                                <div class="vegetarian">
+                                  The Traditional 12 course menu includes 1
+                                  course of pork and 6 courses of seafood.
+                                  <br />Please indicate if
+                                  <strong>you and your partner</strong> would
+                                  like to opt in for a
+                                  <strong>separate Vegetarian table</strong> for
+                                  the evening
+                                </div>
+
+                                <label
+                                  nz-checkbox
+                                  [(ngModel)]="formInputs.vegetarian"
+                                  name="vegetarian"
+                                  class="vegetarian label-text"
+                                >
+                                  <span>
+                                    I/we would like opt in for the Vegetarian
+                                    table for the evening
+                                  </span>
+                                </label>
+                              </nz-form-control>
+                            </nz-form-item>
+
+                            <button
+                              type="submit"
+                              nz-button
+                              nzType="primary"
+                              [disabled]="invitationForm.invalid"
+                            >
+                              RSVP now
+                            </button>
+
+                            <div *ngIf="serverError" class="server-error">
+                              {{ serverError }}
+                            </div>
+                          </form>
+
+                          <div class="rsvp-thank-you" *ngIf="rsvpAlready">
+                            You have responded to our invitation already, thank
+                            you for taking the time to fill this form out and to
+                            come celebrate with us. We look forward to seeing
+                            you on the day of.
+                          </div>
+                        </div>
+
+                        <div class="tab-style" *ngIf="selectedTab === 2">
+                          <div class="registry">
+                            As our wedding day draws near We hope our sentiment
+                            is clear We need you there as we are wed To witness
+                            our love as vows are said But as for gifts, please
+                            don't try To find the ideal thing to buy We have no
+                            list of pots and pans Just hopes and dreams and
+                            honeymoon plans So if a gift is on your mind A
+                            contribution would be kind~ It will help us more
+                            than words can say To celebrate our special day
+                            Thank you!
+                          </div>
+                        </div>
+                      </div>
+                    </nz-tab>
+                  </nz-tabset>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

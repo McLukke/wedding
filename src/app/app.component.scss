@@ -1,179 +1,168 @@
 .main {
   display: flex;
   flex: 1;
-  padding: 2rem;
-  min-height: 100%;
   position: relative;
+}
 
-  @media (min-width: 992px) {
-    padding: 4rem;
-  }
+.flowers {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
 
-  .custom-gabriola {
-    font-family: Gabriola, Sans-serif;
-    font-size: 3rem;
-    color: #bc333a;
-    margin: 0 2rem;
-  }
-
-  .content-wrapper {
-    border: 0.5rem solid #bc333a;
-    flex: 1;
-    padding: 1rem;
-
-    .content {
-      text-align: center;
-      z-index: 100;
-      flex: 1;
-      flex-direction: column;
-
-      .logo {
-        margin: -3.5em auto 0;
-        width: 10rem;
-      }
-
-      > div {
-        display: flex;
-        justify-content: center;
-      }
-
-      .parents {
-        font-family: Gabriola, Sans-serif;
-        font-weight: bold;
-        font-size: 1.6rem;
-
-        @media (min-width: 992px) {
-          font-size: 1.2rem;
-        }
-
-        .title {
-          font-style: italic;
-          font-size: 1.25rem;
-          margin-top: 1rem;
-
-          @media (min-width: 768px) {
-            margin-top: 0;
-          }
-        }
-      }
-
-      .celebration {
-        margin-top: 2rem;
-        justify-content: center;
-        flex-direction: column;
-      }
-
-      .our-names {
-        position: relative;
-        justify-content: center;
-        align-items: center;
-        font-family: Halo, Sans-serif;
-        font-size: 5rem;
-        color: #bc333a;
-
-        .ampersand {
-          font-size: 3rem;
-          margin: 0 1.5rem;
-        }
-      }
-
-      .closing-statement {
-        margin: 1rem 0 2rem 0;
-      }
-
-      // .tab-style {
-      //   padding-bottom: 5rem;
-      //   font-family: Helvetica, Sans-serif;
-
-      //   @media (min-width: 992px) {
-      //     padding-bottom: 10rem;
-      //   }
-
-      //   @media (min-width: 1200px) {
-      //     padding-bottom: 17rem;
-      //   }
-      // }
-
-      .date-time {
-        justify-content: center;
-        align-items: center;
-      }
-
-      .venue {
-        text-transform: uppercase;
-        margin: 2rem 0 0 0;
-
-        &.venue-location {
-          margin: 0 0 2rem 0;
-          text-transform: unset;
-        }
-      }
-
-      .venue-image {
-        width: 100%;
-        padding-bottom: 0;
-
-        @media (min-width: 640px) {
-          padding-bottom: 2rem;
-        }
-
-        @media (min-width: 768px) {
-          padding-bottom: 5rem;
-        }
-      }
-
-      .rsvp {
-        font-size: 1.5rem;
-        align-self: flex-start;
-        margin: 1rem 0 0 1rem;
-      }
-
-      form {
-        margin-top: 3rem;
-
-        .vegetarian {
-          margin-top: 2.25rem;
-          line-height: 1.5rem;
-
-          &.label-text {
-            margin-top: 1rem;
-          }
-        }
-
-        .server-error {
-          color: #f5222d;
-          margin-top: 1rem;
-        }
-      }
-
-      .registry,
-      .rsvp-thank-you {
-        margin-top: 2rem;
-      }
-    }
-  }
-
-  .flowers {
+  img {
+    width: 100%;
     position: absolute;
-    top: 0;
     bottom: 0;
     left: 0;
-    right: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
+    z-index: -1;
 
-    img {
-      width: 100%;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: -1;
+    &.top {
+      top: 0;
+      bottom: unset;
+      transform: rotate(180deg);
+    }
+  }
+}
 
-      &.top {
-        top: 0;
-        bottom: unset;
-        transform: rotate(180deg);
+.content-wrapper {
+  flex: 1;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.content {
+  text-align: center;
+  z-index: 100;
+  flex: 1;
+  flex-direction: column;
+  border: 0.5rem solid #bc333a;
+  padding: 1rem;
+
+  .logo {
+    margin: -3.5em auto 0;
+    width: 10rem;
+  }
+
+  > div {
+    display: flex;
+    justify-content: center;
+  }
+
+  .parents {
+    font-family: Gabriola, Sans-serif;
+    font-weight: bold;
+    font-size: 1.6rem;
+
+    @media (min-width: 992px) {
+      font-size: 1.2rem;
+    }
+
+    .title {
+      font-style: italic;
+      font-size: 1.25rem;
+      margin-top: 1rem;
+
+      @media (min-width: 768px) {
+        margin-top: 0;
       }
     }
+  }
+
+  .celebration {
+    margin-top: 2rem;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .our-names {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    font-family: Halo, Sans-serif;
+    font-size: 5rem;
+    color: #bc333a;
+
+    .ampersand {
+      font-size: 3rem;
+      margin: 0 1.5rem;
+    }
+  }
+
+  .closing-statement {
+    margin: 1rem 0 2rem 0;
+  }
+
+  // .tab-style {
+  //   padding-bottom: 5rem;
+  //   font-family: Helvetica, Sans-serif;
+
+  //   @media (min-width: 992px) {
+  //     padding-bottom: 10rem;
+  //   }
+
+  //   @media (min-width: 1200px) {
+  //     padding-bottom: 17rem;
+  //   }
+  // }
+
+  .date-time {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .venue {
+    text-transform: uppercase;
+    margin: 2rem 0 0 0;
+
+    &.venue-location {
+      margin: 0 0 2rem 0;
+      text-transform: unset;
+    }
+  }
+
+  .venue-image {
+    width: 100%;
+    padding-bottom: 0;
+
+    @media (min-width: 640px) {
+      padding-bottom: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      padding-bottom: 5rem;
+    }
+  }
+
+  .rsvp {
+    font-size: 1.5rem;
+    align-self: flex-start;
+    margin: 1rem 0 0 1rem;
+  }
+
+  form {
+    margin-top: 3rem;
+
+    .vegetarian {
+      margin-top: 2.25rem;
+      line-height: 1.5rem;
+
+      &.label-text {
+        margin-top: 1rem;
+      }
+    }
+
+    .server-error {
+      color: #f5222d;
+      margin-top: 1rem;
+    }
+  }
+
+  .registry,
+  .rsvp-thank-you {
+    margin-top: 2rem;
   }
 }
