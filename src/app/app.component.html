@@ -1,6 +1,8 @@
-<!-- The content below is only a placeholder and can be replaced. -->
 <div class="main">
-  <div class="flowers"><img src="assets/flowers.png" /></div>
+  <div class="flowers">
+    <img class="top" src="assets/flowers.png" />
+    <img src="assets/flowers.png" />
+  </div>
 
   <div class="content-wrapper">
     <div class="content">
@@ -41,6 +43,11 @@
 
       <div class="closing-statement">begin their new life together</div>
 
+      <div class="date-time">
+        <span>Saturday</span> <span class="custom-gabriola">21.09.19</span>
+        <span>6:00pm</span>
+      </div>
+
       <div nz-row>
         <div
           nz-col
@@ -55,12 +62,6 @@
             <nz-tab *ngFor="let tabName of tabs" [nzTitle]="tabName">
               <div class="tab-style">
                 <div *ngIf="selectedTab === 0">
-                  <div class="date-time">
-                    <span>Saturday</span>
-                    <span class="custom-gabriola">21.09.19</span>
-                    <span>6:00pm</span>
-                  </div>
-
                   <div class="venue">Crown Prince Fine Dining & Banquet</div>
                   <div class="venue venue-location">
                     3600 Victoria Park Avenue, North York, ON M2H 3B2
@@ -75,7 +76,7 @@
                   </a>
                 </div>
 
-                <div *ngIf="selectedTab === 1">
+                <div class="tab-style" *ngIf="selectedTab === 1">
                   <form
                     *ngIf="!rsvpAlready"
                     nz-form

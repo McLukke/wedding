@@ -28,6 +28,7 @@ export class AppComponent {
 
   googleUrl =
     "https://www.google.com/maps/place/3600+Victoria+Park+Ave,+North+York,+ON+M2H+3B2/@43.8055214,-79.3395755,15z/data=!4m5!3m4!1s0x89d4d3752e2f2273:0x17611bc600aa20ec!8m2!3d43.8064622!4d-79.3374297";
+
   constructor(private _appService: AppService) {}
 
   handleSubmit() {
@@ -37,6 +38,7 @@ export class AppComponent {
       res => {
         this.formInputs = { ...initFormState };
         window.localStorage.setItem("rsvpAlready", "true");
+        this.rsvpAlready = true;
       },
       err => {
         this.serverError =
