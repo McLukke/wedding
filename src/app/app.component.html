@@ -360,6 +360,23 @@
                             We can’t wait for you to celebrate with us!
                           </div>
                         </div>
+
+                        <div class="tab-style" *ngIf="selectedTab === 3">
+                          <div class="registry">
+                            If you're never been to a traditional Chinese
+                            wedding before and are curious, we've found a few
+                            websites with handy tips - check them out!
+
+                            <a
+                              *ngFor="let helpfulLink of helpfulLinks"
+                              href="{{ helpfulLink.link }}"
+                              target="_blank"
+                              class="helpful-links"
+                            >
+                              {{ helpfulLink.displayName }}
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </nz-tab>
                   </nz-tabset>
