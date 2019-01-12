@@ -169,7 +169,7 @@
   }
 
   form {
-    margin: 3rem 0 5rem 0;
+    margin-top: 3rem;
 
     .vegetarian {
       margin-top: 2.25rem;
@@ -189,5 +189,18 @@
   .registry,
   .rsvp-thank-you {
     margin-top: 2rem;
+  }
+}
+
+.tab-style {
+  padding-bottom: 3rem;
+  font-family: Helvetica, Sans-serif;
+
+  @media (min-width: 1200px) {
+    padding-bottom: 5rem;
+  }
+
+  @media (min-width: 1600px) {
+    padding-bottom: 4rem;
   }
 }
