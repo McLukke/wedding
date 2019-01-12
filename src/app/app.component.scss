@@ -1,3 +1,10 @@
+.custom-gabriola {
+  font-family: Gabriola, Sans-serif;
+  font-size: 3rem;
+  color: #bc333a;
+  margin: 0 2rem;
+}
+
 .main {
   display: flex;
   flex: 1;
@@ -22,7 +29,7 @@
     max-height: 100%;
 
     @media (min-width: 1600px) {
-      max-height: 18%;
+      max-height: 15%;
     }
 
     &.top {
@@ -46,6 +53,7 @@
   flex-direction: column;
   border: 0.5rem solid #bc333a;
   padding: 1rem;
+  min-height: calc(100vh - 4rem);
 
   .logo {
     margin: -3.5em auto 0;
@@ -110,7 +118,7 @@
   }
 
   .closing-statement {
-    margin: 1rem 0 2rem 0;
+    margin: 1rem 0 0;
   }
 
   // .tab-style {
@@ -161,7 +169,7 @@
   }
 
   form {
-    margin-top: 3rem;
+    margin: 3rem 0 8rem 0;
 
     .vegetarian {
       margin-top: 2.25rem;
