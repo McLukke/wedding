@@ -12,8 +12,20 @@ body {
   font-family: Helvetica, Sans-serif;
   font-size: 14px;
 
+  @media (min-width: 768px) {
+    font-size: 18px;
+  }
+
   @media (min-width: 992px) {
     font-size: 24px;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 26px;
+  }
+
+  @media (min-width: 1600px) {
+    font-size: 30px;
   }
 }
 
